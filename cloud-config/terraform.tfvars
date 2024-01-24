@@ -1,7 +1,7 @@
-aws_region = "us-east-1"
+aws_region = ""
 
-aws_access_key = "AKIAYDZYFAPCMWWGLMPR"
+aws_access_key = ""
 
-aws_secret_key = "5lyuu8agnKYqcBqzkaBH2z5DGguJhCUNGvMYdgza"
+aws_secret_key = ""
 
-aws_jenkins_server_type = "t2.micro" 
+aws_jenkins_server_type = "" 
