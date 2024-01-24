@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: PdpService-deployment
+  name: pdpservice-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: PdpService
+      app: pdpservice
   template:
     metadata:
       labels:
-        app: PdpService
+        app: pdpservice
     spec:
       containers:
-      - name: PdpService
-        image: pavankumarsangisetti/PdpService:latest
+      - name: pdpservice
+        image: pavankumarsangisetti/pdpservice:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
