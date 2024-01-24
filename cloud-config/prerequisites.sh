@@ -70,13 +70,13 @@ systemctl restart jenkins.service
  
 sudo -u jenkins bash <<EOF
  
-aws s3api create-bucket --bucket .k8s.local --region 
-aws s3api put-bucket-versioning --bucket .k8s.local --region  --versioning-configuration Status=Enabled
-export KOPS_STATE_STORE=s3://.k8s.local
-kops create cluster --name .k8s.local --zones  --master-count= --master-size  --node-count= --node-size 
-kops update cluster --name .k8s.local --yes --admin
+aws s3api create-bucket --bucket mybucket.k8s.local --region us-east-1
+aws s3api put-bucket-versioning --bucket mybucket.k8s.local --region us-east-1 --versioning-configuration Status=Enabled
+export KOPS_STATE_STORE=s3://mybucket.k8s.local
+kops create cluster --name mycluster.k8s.local --zones us-east-1a --master-count=1 --master-size t2.medium --node-count=2 --node-size t2.medium
+kops update cluster --name mycluster.k8s.local --yes --admin
  
-export KOPS_STATE_STORE=s3://.k8s.local
+export KOPS_STATE_STORE=s3://mybucket.k8s.local
  
 if [ $? -eq 0 ]; then
     echo "Kubernetes cluster created successfully. Pausing for 5 minutes before proceeding with the next commands."
